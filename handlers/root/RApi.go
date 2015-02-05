@@ -30,7 +30,7 @@ func (self *RApi) Get() {
 			self.Ctx.WriteString(outtimesz)
 		} else {
 
-			editmid, _ := self.GetInt(":editmid")
+			editmid, _ := self.GetInt64(":editmid")
 			img := models.GetFile(editmid)
 			self.Data["img"] = img
 			self.TplNames = "root/gallery_editurl.html"
@@ -42,7 +42,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Ctx.Redirect(302, "/root-login")
 		} else {
-			if mid, _ := self.GetInt(":delmid"); mid != 0 {
+			if mid, _ := self.GetInt64(":delmid"); mid != 0 {
 				if e := models.DelFile(mid); e != nil {
 					self.Data["MsgErr"] = "删除图片文件失败！"
 				} else {
@@ -60,7 +60,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Ctx.Redirect(302, "/root-login")
 		} else {
-			if mid, _ := self.GetInt(":nid"); mid != 0 {
+			if mid, _ := self.GetInt64(":nid"); mid != 0 {
 				if e := models.DelNode(mid); e != nil {
 					self.Data["MsgErr"] = "删除节点失败！"
 				} else {
@@ -78,7 +78,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Ctx.Redirect(302, "/root-login")
 		} else {
-			if mid, _ := self.GetInt(":nid"); mid != 0 {
+			if mid, _ := self.GetInt64(":nid"); mid != 0 {
 				if e := models.DelNode(mid); e != nil {
 					self.Data["MsgErr"] = "删除节点失败！"
 				} else {
@@ -94,7 +94,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Ctx.Redirect(302, "/root-login")
 		} else {
-			if mid, _ := self.GetInt(":tid"); mid != 0 {
+			if mid, _ := self.GetInt64(":tid"); mid != 0 {
 				if e := models.DelTopic(mid); e != nil {
 					self.Data["MsgErr"] = "删除内容失败！"
 				} else {
@@ -110,7 +110,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Redirect("/root-login", 302)
 		} else {
-			if mid, _ := self.GetInt(":tid"); mid != 0 {
+			if mid, _ := self.GetInt64(":tid"); mid != 0 {
 				if e := models.DelTopic(mid); e != nil {
 					self.Data["MsgErr"] = "删除内容失败！"
 				} else {
@@ -126,7 +126,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Redirect("/root-login", 302)
 		} else {
-			if mid, _ := self.GetInt(":tid"); mid != 0 {
+			if mid, _ := self.GetInt64(":tid"); mid != 0 {
 				if e := models.DelTopic(mid); e != nil {
 					self.Data["MsgErr"] = "删除内容失败！"
 				} else {
@@ -144,7 +144,7 @@ func (self *RApi) Get() {
 		} else {
 			self.Data["MsgErr"], _ = self.GetSession("MsgErr").(string)
 			self.DelSession("MsgErr")
-			tid, _ := self.GetInt(":tid")
+			tid, _ := self.GetInt64(":tid")
 			tid_handler := models.GetTopic(tid)
 			self.Data["catpage"] = "about"
 			self.Data["asidepage"] = "root_about_topic_edit"
@@ -162,7 +162,7 @@ func (self *RApi) Get() {
 			self.Data["MsgErr"], _ = self.GetSession("MsgErr").(string)
 			self.DelSession("MsgErr")
 
-			tid, _ := self.GetInt(":tid")
+			tid, _ := self.GetInt64(":tid")
 			tid_handler := models.GetTopic(tid)
 			self.Data["catpage"] = "services"
 			self.Data["asidepage"] = "root-services-topic-edit"
@@ -180,7 +180,7 @@ func (self *RApi) Get() {
 			var cid int64 = 6
 			self.Data["MsgErr"], _ = self.GetSession("MsgErr").(string)
 			self.DelSession("MsgErr")
-			tid, _ := self.GetInt(":tid")
+			tid, _ := self.GetInt64(":tid")
 			tid_handler := models.GetTopic(tid)
 			self.Data["asidepage"] = "root-contact-topic-edit"
 			self.Data["topic"] = tid_handler
@@ -199,7 +199,7 @@ func (self *RApi) Get() {
 			self.Data["MsgErr"], _ = self.GetSession("MsgErr").(string)
 			self.DelSession("MsgErr")
 
-			tid, _ := self.GetInt(":tid")
+			tid, _ := self.GetInt64(":tid")
 			tid_handler := models.GetTopic(tid)
 			self.Data["catpage"] = "crafts"
 			self.Data["asidepage"] = "root-crafts-topic-edit"
@@ -214,7 +214,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Ctx.Redirect(302, "/root-login")
 		} else {
-			if mid, _ := self.GetInt(":tid"); mid != 0 {
+			if mid, _ := self.GetInt64(":tid"); mid != 0 {
 				if e := models.DelTopic(mid); e != nil {
 					self.Data["MsgErr"] = "删除内容失败！"
 				} else {
@@ -230,7 +230,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Ctx.Redirect(302, "/root-login")
 		} else {
-			if mid, _ := self.GetInt(":tid"); mid != 0 {
+			if mid, _ := self.GetInt64(":tid"); mid != 0 {
 				if e := models.DelTopic(mid); e != nil {
 					self.Data["MsgErr"] = "删除内容失败！"
 				} else {
@@ -246,7 +246,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Ctx.Redirect(302, "/root-login")
 		} else {
-			nid, _ := self.GetInt(":nid")
+			nid, _ := self.GetInt64(":nid")
 			//var cid int64 = 6
 			self.Data["MsgErr"], _ = self.GetSession("MsgErr").(string)
 			self.DelSession("MsgErr")
@@ -263,7 +263,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Ctx.Redirect(302, "/root-login")
 		} else {
-			nid, _ := self.GetInt(":nid")
+			nid, _ := self.GetInt64(":nid")
 			//var cid int64 = 6
 			self.Data["MsgErr"], _ = self.GetSession("MsgErr").(string)
 			self.DelSession("MsgErr")
@@ -280,7 +280,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Ctx.Redirect(302, "/root-login")
 		} else {
-			nid, _ := self.GetInt(":nid")
+			nid, _ := self.GetInt64(":nid")
 			//var cid int64 = 6
 			self.Data["MsgErr"], _ = self.GetSession("MsgErr").(string)
 			self.DelSession("MsgErr")
@@ -296,7 +296,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Ctx.Redirect(302, "/root-login")
 		} else {
-			nid, _ := self.GetInt(":nid")
+			nid, _ := self.GetInt64(":nid")
 			self.Data["MsgErr"], _ = self.GetSession("MsgErr").(string)
 			self.DelSession("MsgErr")
 
@@ -311,7 +311,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Ctx.Redirect(302, "/root-login")
 		} else {
-			nid, _ := self.GetInt(":nid")
+			nid, _ := self.GetInt64(":nid")
 			self.Data["MsgErr"], _ = self.GetSession("MsgErr").(string)
 			self.DelSession("MsgErr")
 
@@ -330,7 +330,7 @@ func (self *RApi) Get() {
 			self.Data["MsgErr"], _ = self.GetSession("MsgErr").(string)
 			self.DelSession("MsgErr")
 
-			tid, _ := self.GetInt(":tid")
+			tid, _ := self.GetInt64(":tid")
 			tid_handler := models.GetTopic(tid)
 			self.Data["catpage"] = "information"
 			self.Data["asidepage"] = "root-information-topic-edit"
@@ -345,7 +345,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Ctx.Redirect(302, "/root-login")
 		} else {
-			if mid, _ := self.GetInt(":nid"); mid != 0 {
+			if mid, _ := self.GetInt64(":nid"); mid != 0 {
 				if e := models.DelNode(mid); e != nil {
 					self.Data["MsgErr"] = "删除节点失败！"
 				} else {
@@ -361,7 +361,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Ctx.Redirect(302, "/root-login")
 		} else {
-			if mid, _ := self.GetInt(":nid"); mid != 0 {
+			if mid, _ := self.GetInt64(":nid"); mid != 0 {
 				if e := models.DelNode(mid); e != nil {
 					self.Data["MsgErr"] = "删除节点失败！"
 				} else {
@@ -377,7 +377,7 @@ func (self *RApi) Get() {
 		if sess_role, _ := self.GetSession("userrole").(int64); sess_role != -1000 {
 			self.Ctx.Redirect(302, "/root-login")
 		} else {
-			if mid, _ := self.GetInt(":nid"); mid != 0 {
+			if mid, _ := self.GetInt64(":nid"); mid != 0 {
 				if e := models.DelNode(mid); e != nil {
 					self.Data["MsgErr"] = "删除节点失败！"
 				} else {
@@ -402,7 +402,7 @@ func (self *RApi) Post() {
 			inputs := self.Input()
 			url := inputs.Get("url")
 			//圖片ID
-			editmid, _ := self.GetInt(":editmid")
+			editmid, _ := self.GetInt64(":editmid")
 			img := models.GetFile(editmid)
 
 			if e := models.SetFile(editmid, img.Pid, img.Ctype, img.Filename, img.Content, img.Hash, img.Location, url, img.Size); e != nil {
@@ -425,7 +425,7 @@ func (self *RApi) Post() {
 			stitle := self.GetString("stitle")
 			content := self.GetString("content")
 			uid, _ := self.GetSession("userid").(int64)
-			tid, _ := self.GetInt(":tid")
+			tid, _ := self.GetInt64(":tid")
 
 			file, handler, e := self.GetFile("image")
 
@@ -506,7 +506,7 @@ func (self *RApi) Post() {
 			var cid int64 = 1
 			title := self.GetString("title")
 			content := self.GetString("content")
-			nid, _ := self.GetInt(":nid")
+			nid, _ := self.GetInt64(":nid")
 			//编辑NODE
 			if title != "" && nid != 0 {
 				if e := models.SetNode(nid, title, content, cid, 1); e != nil {
@@ -537,7 +537,7 @@ func (self *RApi) Post() {
 			var cid int64 = 3
 			title := self.GetString("title")
 			content := self.GetString("content")
-			nid, _ := self.GetInt(":nid")
+			nid, _ := self.GetInt64(":nid")
 			//编辑NODE
 			if title != "" && nid != 0 {
 				if e := models.SetNode(nid, title, content, cid, 1); e != nil {
@@ -570,8 +570,8 @@ func (self *RApi) Post() {
 			stitle := self.GetString("stitle")
 			content := self.GetString("content")
 			uid, _ := self.GetSession("userid").(int64)
-			tid, _ := self.GetInt(":tid")
-			nid, _ := self.GetInt("nodeid")
+			tid, _ := self.GetInt64(":tid")
+			nid, _ := self.GetInt64("nodeid")
 			file, handler, e := self.GetFile("image")
 
 			if handler != nil && e == nil {
@@ -651,7 +651,7 @@ func (self *RApi) Post() {
 			var cid int64 = 4
 			title := self.GetString("title")
 			content := self.GetString("content")
-			nid, _ := self.GetInt(":nid")
+			nid, _ := self.GetInt64(":nid")
 			//编辑NODE
 			if title != "" && nid != 0 {
 				if e := models.SetNode(nid, title, content, cid, 1); e != nil {
@@ -684,8 +684,8 @@ func (self *RApi) Post() {
 			stitle := self.GetString("stitle")
 			content := self.GetString("content")
 			uid, _ := self.GetSession("userid").(int64)
-			tid, _ := self.GetInt(":tid")
-			nid, _ := self.GetInt("nodeid")
+			tid, _ := self.GetInt64(":tid")
+			nid, _ := self.GetInt64("nodeid")
 			file, handler, e := self.GetFile("image")
 
 			if handler != nil && e == nil {
@@ -767,8 +767,8 @@ func (self *RApi) Post() {
 			stitle := self.GetString("stitle")
 			content := self.GetString("content")
 			uid, _ := self.GetSession("userid").(int64)
-			tid, _ := self.GetInt(":tid")
-			nid, _ := self.GetInt("nodeid")
+			tid, _ := self.GetInt64(":tid")
+			nid, _ := self.GetInt64("nodeid")
 			file, handler, e := self.GetFile("image")
 
 			if handler != nil && e == nil {
@@ -848,7 +848,7 @@ func (self *RApi) Post() {
 			var cid int64 = 5
 			title := self.GetString("title")
 			content := self.GetString("content")
-			nid, _ := self.GetInt(":nid")
+			nid, _ := self.GetInt64(":nid")
 			//编辑NODE
 			if title != "" && nid != 0 {
 				if e := models.SetNode(nid, title, content, cid, 1); e != nil {
@@ -879,7 +879,7 @@ func (self *RApi) Post() {
 			var cid int64 = 6
 			title := self.GetString("title")
 			content := self.GetString("content")
-			nid, _ := self.GetInt(":nid")
+			nid, _ := self.GetInt64(":nid")
 			//编辑NODE
 			if title != "" && nid != 0 {
 				if e := models.SetNode(nid, title, content, cid, 1); e != nil {
@@ -911,8 +911,8 @@ func (self *RApi) Post() {
 			ftitle := self.GetString("title")
 			content := self.GetString("content")
 			uid, _ := self.GetSession("userid").(int64)
-			tid, _ := self.GetInt(":tid")
-			nid, _ := self.GetInt("nodeid")
+			tid, _ := self.GetInt64(":tid")
+			nid, _ := self.GetInt64("nodeid")
 
 			if ftitle != "" && nid != 0 && content != "" {
 				//保存编辑
