@@ -3,8 +3,9 @@ package handlers
 import (
 	"strconv"
 	"time"
-	"toropress/libs"
-	"toropress/models"
+
+	"github.com/ehudu/toropress/libs"
+	"github.com/ehudu/toropress/models"
 )
 
 type ModifyCategoryHandler struct {

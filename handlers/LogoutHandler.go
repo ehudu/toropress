@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"toropress/libs"
+	"github.com/ehudu/toropress/libs"
 )
 
 type LogoutHandler struct {

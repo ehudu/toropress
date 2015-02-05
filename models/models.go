@@ -3,9 +3,9 @@ package models
 import (
 	"errors"
 	"fmt"
+	"github.com/ehudu/toropress/helper"
 	"github.com/lunny/xorm"
 	_ "github.com/mattn/go-sqlite3"
-	"toropress/helper"
 	//_ "github.com/lib/pq"
 	"os"
 	"time"

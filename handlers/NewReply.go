@@ -3,8 +3,9 @@ package handlers
 import (
 	"fmt"
 	"net/url"
-	"toropress/libs"
-	"toropress/models"
+
+	"github.com/ehudu/toropress/libs"
+	"github.com/ehudu/toropress/models"
 )
 
 type NewReplyHandler struct {

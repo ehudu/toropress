@@ -4,12 +4,13 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"toropress/helper"
-	"toropress/libs"
-	"toropress/models"
 	//"strconv"
 	"strings"
 	"time"
+
+	"github.com/ehudu/toropress/helper"
+	"github.com/ehudu/toropress/libs"
+	"github.com/ehudu/toropress/models"
 )
 
 type RGalleryHandler struct {

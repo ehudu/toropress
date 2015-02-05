@@ -2,8 +2,9 @@ package handlers
 
 import (
 	"fmt"
-	"toropress/libs"
-	"toropress/models"
+
+	"github.com/ehudu/toropress/libs"
+	"github.com/ehudu/toropress/models"
 )
 
 type NewTopicHandler struct {
@@ -21,7 +22,7 @@ func (self *NewTopicHandler) Post() {
 	nid, _ := self.GetInt("nodeid")
 	cid := models.GetNode(nid).Pid
 	uid, _ := self.GetSession("userid").(int64)
-	author,_ := self.GetSession("username").(string)
+	author, _ := self.GetSession("username").(string)
 
 	fmt.Println("=============================")
 	fmt.Println(self.GetSession("userid"))

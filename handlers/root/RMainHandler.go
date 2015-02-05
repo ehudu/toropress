@@ -1,7 +1,7 @@
 package root
 
 import (
-	"toropress/libs"
+	"github.com/ehudu/toropress/libs"
 	//"../../models"
 	//"../../utils"
 )

@@ -3,9 +3,10 @@ package handlers
 import (
 	"strconv"
 	"time"
-	"toropress/helper"
-	"toropress/libs"
-	"toropress/models"
+
+	"github.com/ehudu/toropress/helper"
+	"github.com/ehudu/toropress/libs"
+	"github.com/ehudu/toropress/models"
 )
 
 type LikeHandler struct {

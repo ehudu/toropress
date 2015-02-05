@@ -4,8 +4,9 @@ import (
 	"github.com/astaxie/beego"
 	"runtime"
 	"time"
-	"toropress/helper"
-	"toropress/models"
+
+	"github.com/ehudu/toropress/helper"
+	"github.com/ehudu/toropress/models"
 )
 
 var (

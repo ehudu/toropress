@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"toropress/libs"
-	"toropress/models"
+	"github.com/ehudu/toropress/libs"
+	"github.com/ehudu/toropress/models"
 )
 
 type NewCategoryHandler struct {
